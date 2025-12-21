@@ -1,14 +1,23 @@
-# 📖 Amharic Bible API
+# Open Amharic Bible API
 
-A fast, simple, and well-structured **REST API for the Amharic Bible**, built with Node.js and Express.
-Each book is stored as its own JSON file, making the project easy to extend, maintain, and scale.
+**URL:** [https://openamharicbible.vercel.app](https://openamharicbible.vercel.app)
 
+A RESTful API providing access to the full Amharic Holy Bible in structured JSON format. Each book is served as JSON with chapters and verses. Perfect for developers, researchers, or enthusiasts building apps, websites, or educational projects.
+
+---
 Perfect for:
 
 * Bible apps 📱
 * Church websites ⛪
 * Study tools 📚
 * Language and text projects 🇪🇹
+
+---
+## Live Demo
+
+Visit: [https://openamharicbible.vercel.app](https://openamharicbible.vercel.app)
+
+Landing page includes instructions, usage examples, and quick links to all endpoints.
 
 ---
 
@@ -76,6 +85,7 @@ No transformation needed. The API adapts to this structure directly.
 ---
 
 ## 🚀 Getting Started
+## Instalation (Local)
 
 ### 1️⃣ Clone the project
 
@@ -104,31 +114,39 @@ http://localhost:3000
 
 ---
 
-## 🔗 API Endpoints
+## API Usage
 
-### 📚 List all books
+### List all books
 
 ```
 GET /api/am/books
 ```
 
-### 📖 Get chapters of a book
+### Get all chapters of a book
 
 ```
-GET /api/am/books/ኦሪት ዘፍጥረት/chapters
+GET /api/am/books/:book/chapters
 ```
 
-### 📄 Get a full chapter
+*Example:* `/api/am/books/ኦሪት ዘፍጥረት/chapters`
+
+### Get a specific chapter
 
 ```
-GET /api/am/books/ኦሪት ዘፍጥረት/chapters/1
+GET /api/am/books/:book/chapters/:chapter
 ```
 
-### ✝️ Get a single verse
+*Example:* `/api/am/books/ኦሪት ዘፍጥረት/chapters/1`
+
+### Get a single verse
 
 ```
-GET /api/am/books/ኦሪት ዘፍጥረት/chapters/1/1
+GET /api/am/books/:book/chapters/:chapter/:verse
 ```
+
+*Example:* `/api/am/books/ኦሪት ዘፍጥረት/chapters/1/1`
+
+---
 
 ✔ Browsers and clients automatically handle Amharic URL encoding.
 
@@ -183,5 +201,8 @@ Free to use, modify, and distribute.
 Made with love for Amharic readers, developers, and learners.
 
 If you build something with this API, that’s already a win.
-## misikir ayu DEC 21 , 2025
-## WENGEL YASHENFAL
+## misikir ayu dec 21 , 2025
+
+
+
+
