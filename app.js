@@ -2,12 +2,14 @@ const express = require("express");
 const app = express();
 app.set("view engine", "pug");
 app.set("views", "./views");
-
+const searchRoutes = require("./routes/search.routes");
+const docsRoute = require("./routes/docs");
 
 app.use(express.json());
 
 app.use("/api/am", require("./routes/bible.routes"));
-
+app.use("/api/am", searchRoutes);
+app.use("/docs", docsRoute);
 app.get("/", (req, res) => {
   res.render("index");
 });

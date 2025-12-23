@@ -1,0 +1,120 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Amharic Bible API Docs
+    style.
+      * {
+        box-sizing: border-box;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      body {
+        margin: 0;
+        background: #0f2027;
+        color: #fff;
+      }
+
+      .container {
+        max-width: 1100px;
+        margin: auto;
+        padding: 40px 20px;
+      }
+
+      h1, h2, h3 {
+        color: #ffd369;
+      }
+
+      .card {
+        background: rgba(255,255,255,0.08);
+        border-radius: 16px;
+        padding: 25px;
+        margin-bottom: 30px;
+      }
+
+      .endpoint {
+        background: #111;
+        padding: 12px 15px;
+        border-radius: 10px;
+        font-family: monospace;
+        margin: 8px 0;
+        overflow-x: auto;
+      }
+
+      .note {
+        opacity: 0.85;
+      }
+
+      a {
+        color: #ffd369;
+      }
+
+  body
+    .container
+      h1 📘 Amharic Bible API Documentation
+      p.note Base URL: https://openamharicbible.vercel.app/api/am
+
+      .card
+        h2 Books
+        p List all available books
+        .endpoint GET /books
+        .endpoint curl https://openamharicbible.vercel.app/api/am/books
+
+      .card
+        h2 Chapters
+        p Get all chapters of a book
+        .endpoint GET /books/:book/chapters
+        .endpoint curl https://openamharicbible.vercel.app/api/am/books/ዘፍ/chapters
+
+      .card
+        h2 Chapter Content
+        p Get a specific chapter
+        .endpoint GET /books/:book/chapters/:chapter
+        .endpoint curl https://openamharicbible.vercel.app/api/am/books/ዘፍ/chapters/1
+
+      .card
+        h2 Verse
+        p Get a single verse
+        .endpoint GET /books/:book/chapters/:chapter/:verse
+        .endpoint curl https://openamharicbible.vercel.app/api/am/books/ዘፍ/chapters/1/4
+
+      .card
+        h2 Book Name Formats
+        p You can use either full book names or abbreviations.
+        .endpoint GET /books/ኦሪት ዘፍጥረት/chapters/1/4
+        .endpoint GET /books/ዘፍ/chapters/1/4
+
+      .card
+        h2 Search
+        p Search the Bible by keyword
+        .endpoint GET /search?q=እግዚአብሔር
+        .endpoint curl https://openamharicbible.vercel.app/api/am/search?q=እግዚአብሔር
+
+        p Limit search results
+        .endpoint GET /search?q=እግዚአብሔር&limit=5
+        .endpoint curl https://openamharicbible.vercel.app/api/am/search?q=እግዚአብሔር&limit=5
+
+        p Search inside a specific book
+        .endpoint GET /search?q=መጀመሪያ&book=ዘፍ
+        .endpoint curl https://openamharicbible.vercel.app/api/am/search?q=መጀመሪያ&book=ዘፍ
+
+        p Search by testament
+        .endpoint GET /search?q=እግዚአብሔር&testament=new
+        .endpoint curl https://openamharicbible.vercel.app/api/am/search?q=እግዚአብሔር&testament=new
+
+        .endpoint GET /search?q=እግዚአብሔር&testament=old
+        .endpoint curl https://openamharicbible.vercel.app/api/am/search?q=እግዚአብሔር&testament=old
+
+      .card
+        h2 Notes
+        ul
+          li Amharic URLs are supported and auto-encoded by browsers
+          li Book names accept full titles or abbreviations
+          li Limit results using <code>limit</code>
+          li Filter by testament using <code>testament</code> ('old' or 'new')
+          li New languages can be added easily (e.g. Afaan Oromo)
+          li No authentication required
+
+      p
+        a(href="/") ← Back to Home

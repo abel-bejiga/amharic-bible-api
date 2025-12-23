@@ -1,0 +1,13 @@
+
+
+### get request to /api/am/search?q=እግዚአብሔር
+
+GET /api/am/search?q=እግዚአብሔር
+
+
+### get request to /api/am/books/ዘፍ/chapters
+
+GET /api/am/books/ዘፍ/chapters
+
+Host: localhost:3000
+Accept: application/json

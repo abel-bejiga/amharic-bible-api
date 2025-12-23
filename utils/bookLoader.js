@@ -1,27 +1,34 @@
 const fs = require("fs");
 const path = require("path");
 
-const BOOKS_DIR = path.join(__dirname, "../data/books");
+const booksDir = path.join(__dirname, "../data/books");
 
 function getAllBooks() {
-  return fs.readdirSync(BOOKS_DIR).map((file) => {
-    const data = require(path.join(BOOKS_DIR, file));
+  return fs.readdirSync(booksDir).map((file) => {
+    const data = JSON.parse(fs.readFileSync(path.join(booksDir, file), "utf8"));
+
     return {
       title: data.title,
       abbv: data.abbv,
-      file,
+      chapters: data.chapters.length,
     };
   });
 }
 
-function getBookByName(bookName) {
-  const filePath = path.join(BOOKS_DIR, `${bookName}.json`);
+function getBookByName(bookParam) {
+  const book = decodeURIComponent(bookParam).trim();
 
-  if (!fs.existsSync(filePath)) {
-    return null;
+  const files = fs.readdirSync(booksDir);
+
+  for (const file of files) {
+    const data = JSON.parse(fs.readFileSync(path.join(booksDir, file), "utf8"));
+
+    if (data.abbv === book || data.title === book) {
+      return data;
+    }
   }
 
-  return require(filePath);
+  return null;
 }
 
 module.exports = {
